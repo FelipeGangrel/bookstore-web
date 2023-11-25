@@ -1,5 +1,6 @@
-import * as RadixDialog from '@radix-ui/react-dialog'
 import { X } from '@phosphor-icons/react'
+import * as RadixDialog from '@radix-ui/react-dialog'
+
 import { cn } from '@/libs/styles'
 
 export type DialogHeaderProps = {

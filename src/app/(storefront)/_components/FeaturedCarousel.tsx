@@ -1,10 +1,11 @@
 'use client'
 
-import { Button } from '@/components/client-side'
-import { Carousel } from 'flowbite-react'
 import type { CustomFlowbiteTheme } from 'flowbite-react'
+import { Carousel } from 'flowbite-react'
 import Image from 'next/image'
 import type { FC, HTMLAttributes } from 'react'
+
+import { Button } from '@/components/client-side'
 
 const themeStyles = {
   scrollContainer: {

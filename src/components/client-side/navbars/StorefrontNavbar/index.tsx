@@ -1,6 +1,7 @@
-import { SearchBar } from '../SearchBar'
-import { Book, Heart, User, ShoppingCart, List } from '@phosphor-icons/react'
+import { Book, Heart, List, ShoppingCart, User } from '@phosphor-icons/react'
 import Link from 'next/link'
+
+import { SearchBar } from '../../SearchBar'
 
 export const StorefrontNavbar = () => {
   return (

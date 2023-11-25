@@ -1,8 +1,9 @@
-import { cn } from '@/libs/styles'
+import { MagnifyingGlass, X } from '@phosphor-icons/react'
 import { debounce } from 'lodash'
 import type { ChangeEvent, FC, InputHTMLAttributes } from 'react'
 import { useCallback, useRef, useState } from 'react'
-import { MagnifyingGlass, X } from '@phosphor-icons/react'
+
+import { cn } from '@/libs/styles'
 
 type Props = InputHTMLAttributes<HTMLInputElement>
 
