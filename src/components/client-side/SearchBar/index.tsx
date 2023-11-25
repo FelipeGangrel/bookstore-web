@@ -32,7 +32,7 @@ export const SearchBar: FC<Props> = ({ className, onChange, ...props }) => {
         ref={inputRef}
         type="text"
         className={cn(
-          "border border-slate-200 bg-gray-50 rounded-md pl-4 pr-10 py-2 w-full outline-none focus:ring-2 focus:ring-slate-300",
+          "border border-slate-200 bg-gray-50 rounded-md pl-4 pr-10 py-2 w-full outline-none focus:ring-2 focus:ring-slate-500",
           className
         )}
         onChange={(e) => {
