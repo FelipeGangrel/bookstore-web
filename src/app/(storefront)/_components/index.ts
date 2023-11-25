@@ -1,1 +1,1 @@
-export * from "./FeaturedCarousel";
+export * from './FeaturedCarousel'
