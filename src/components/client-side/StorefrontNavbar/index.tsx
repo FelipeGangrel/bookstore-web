@@ -1,11 +1,11 @@
-import { SearchBar } from "../SearchBar";
-import { Book, Heart, User, ShoppingCart, List } from "@phosphor-icons/react";
-import Link from "next/link";
+import { SearchBar } from '../SearchBar'
+import { Book, Heart, User, ShoppingCart, List } from '@phosphor-icons/react'
+import Link from 'next/link'
 
 export const StorefrontNavbar = () => {
   return (
-    <div className="bg-white shadow-sm fixed top-0 w-full z-10">
-      <div className="max-w-5xl mx-auto px-4 flex justify-between items-center h-20 gap-4">
+    <div className="fixed top-0 z-10 w-full bg-white shadow-sm">
+      <div className="mx-auto flex h-20 max-w-5xl items-center justify-between gap-4 px-4">
         <Link href="/" className="flex gap-2 px-4">
           <Book size="24" weight="bold" />
           <span className="font-extrabold">BookStore</span>
@@ -16,7 +16,7 @@ export const StorefrontNavbar = () => {
         </button>
         <SearchBar
           onChange={(e) => {
-            console.log(e.target.value);
+            console.log(e.target.value)
           }}
         />
         <button>
@@ -27,11 +27,11 @@ export const StorefrontNavbar = () => {
         </button>
         <button className="relative">
           <ShoppingCart size="24" />
-          <div className="bg-red-500 h-5 w-5 flex items-center justify-center rounded-full text-xs text-white -top-2 absolute -right-2">
+          <div className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-xs text-white">
             3
           </div>
         </button>
       </div>
     </div>
-  );
-};
+  )
+}

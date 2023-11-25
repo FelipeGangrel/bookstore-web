@@ -1,3 +1,3 @@
 export const AdminPanelNavbar = () => {
-  return <div>admin panel navbar</div>;
-};
+  return <div>admin panel navbar</div>
+}
