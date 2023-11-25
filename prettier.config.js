@@ -1,4 +1,4 @@
-module.exports  = {
+module.exports = {
   plugins: ['prettier-plugin-tailwindcss'],
   tailwindFunctions: ['cva', 'clsx', 'tw', 'twMerge', 'cn'],
   trailingComma: 'es5',
