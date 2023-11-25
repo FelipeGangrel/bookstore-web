@@ -4,13 +4,13 @@ import { tv } from 'tailwind-variants'
 import { cn } from '@/libs/styles'
 
 const buttonClasses = tv({
-  base: 'font-medium bg-blue-500 text-white rounded-md active:opacity-80',
+  base: 'rounded-md border font-medium active:opacity-80',
   variants: {
     variant: {
-      primary: 'bg-blue-500 text-white',
-      danger: 'bg-red-500 text-white',
-      light: 'bg-white text-black',
-      dark: 'bg-black text-white',
+      primary: 'border-yellow-300 bg-yellow-300 text-black',
+      danger: 'border-red-500 bg-red-500 text-white',
+      light: 'border-gray-300 bg-white text-black',
+      dark: 'border-black bg-black text-white',
     },
     size: {
       sm: 'text-sm',
@@ -21,7 +21,7 @@ const buttonClasses = tv({
   compoundVariants: [
     {
       size: ['sm', 'md'],
-      class: 'px-3 py-1',
+      class: 'px-3 py-2',
     },
   ],
   defaultVariants: {
