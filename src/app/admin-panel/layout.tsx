@@ -1,8 +1,8 @@
-import { AdminPanelNavbar } from "@/components/client-side";
+import { AdminPanelNavbar } from '@/components/client-side'
 
 type Props = {
-  readonly children: React.ReactNode;
-};
+  readonly children: React.ReactNode
+}
 
 export default function StoreFrontLayout({ children }: Props) {
   return (
@@ -10,5 +10,5 @@ export default function StoreFrontLayout({ children }: Props) {
       <AdminPanelNavbar />
       {children}
     </>
-  );
+  )
 }
