@@ -1,10 +1,14 @@
 {
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
   "tailwindCSS.experimental.classRegex": [
     ["Classes \\=([^;]*);", "'([^']*)'"],
     ["Classes \\=([^;]*);", "\"([^\"]*)\""],
     ["Classes \\=([^;]*);", "\\`([^\\`]*)\\`"],
     ["Styles \\=([^;]*);", "'([^']*)'"],
     ["Styles \\=([^;]*);", "\"([^\"]*)\""],
-    ["Styles \\=([^;]*);", "\\`([^\\`]*)\\`"]
-  ]
+    ["Styles \\=([^;]*);", "\\`([^\\`]*)\\`"],
+    ["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+  ],
+  "prettier.configPath": "prettier.config.js",
 }

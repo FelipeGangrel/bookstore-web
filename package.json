@@ -6,10 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --write --ignore-path .gitignore \"**/*.{js,jsx,json,md,ts,tsx}\""
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.0.15",
+    "@radix-ui/react-dialog": "^1.0.5",
     "clsx": "^2.0.0",
     "flowbite": "^2.2.0",
     "flowbite-react": "^0.7.0",
@@ -29,6 +31,8 @@
     "eslint": "^8",
     "eslint-config-next": "14.0.3",
     "postcss": "^8",
+    "prettier": "^3.1.0",
+    "prettier-plugin-tailwindcss": "^0.5.7",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
   }
