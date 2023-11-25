@@ -2,7 +2,6 @@
 
 import type { CustomFlowbiteTheme } from 'flowbite-react'
 import { Carousel } from 'flowbite-react'
-import Image from 'next/image'
 import type { FC, HTMLAttributes } from 'react'
 
 import { Button } from '@/components/client-side'
@@ -37,7 +36,7 @@ const Slide: FC<SlideProps> = ({ children }) => {
   )
 }
 
-export const FeaturedCarousel = () => {
+export const BannersCarousel = () => {
   return (
     <div className="mx-auto my-0 h-[600px] w-full max-w-6xl bg-gray-900">
       <Carousel

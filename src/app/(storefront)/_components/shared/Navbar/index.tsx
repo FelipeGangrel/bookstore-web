@@ -1,9 +1,9 @@
 import { Book, Heart, List, ShoppingCart, User } from '@phosphor-icons/react'
 import Link from 'next/link'
 
-import { SearchBar } from '../../SearchBar'
+import { SearchBar } from '@/components/client-side/SearchBar'
 
-export const StorefrontNavbar = () => {
+export const Navbar = () => {
   return (
     <div className="fixed top-0 z-10 w-full bg-white shadow-sm">
       <div className="mx-auto flex h-20 max-w-5xl items-center justify-between gap-4 px-4">
