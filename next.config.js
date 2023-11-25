@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["localhost", "picsum.photos"],
+    domains: ['localhost', 'picsum.photos'],
   },
-};
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig
