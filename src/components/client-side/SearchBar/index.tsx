@@ -40,6 +40,7 @@ export const SearchBar: FC<Props> = ({ className, onChange, ...props }) => {
           setSearch(e.target.value);
         }}
         value={search}
+        placeholder="Buscar..."
       />
       <button
         type="button"

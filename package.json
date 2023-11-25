@@ -11,6 +11,8 @@
   "dependencies": {
     "@phosphor-icons/react": "^2.0.15",
     "clsx": "^2.0.0",
+    "flowbite": "^2.2.0",
+    "flowbite-react": "^0.7.0",
     "lodash": "^4.17.21",
     "next": "14.0.3",
     "react": "^18",

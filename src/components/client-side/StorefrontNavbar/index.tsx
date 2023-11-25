@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const StorefrontNavbar = () => {
   return (
-    <div className="bg-white shadow-sm sticky top-0">
+    <div className="bg-white shadow-sm fixed top-0 w-full z-10">
       <div className="max-w-5xl mx-auto px-4 flex justify-between items-center h-20 gap-4">
         <Link href="/" className="flex gap-2 px-4">
           <Book size="24" weight="bold" />
