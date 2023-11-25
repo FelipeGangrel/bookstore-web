@@ -14,7 +14,7 @@ export const Content: React.FC<DialogContentProps> = ({
       className={cn(
         'fixed left-[50%] top-[50%] w-full max-w-[480px]',
         'translate-x-[-50%] translate-y-[-50%]',
-        'rounded-md border-2 border-slate-200 bg-slate-50 shadow-xl',
+        'rounded-md border-2 border-slate-200 bg-white shadow-xl',
         props.className
       )}
     >

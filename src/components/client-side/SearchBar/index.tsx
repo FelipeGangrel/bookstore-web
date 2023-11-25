@@ -32,10 +32,7 @@ export const SearchBar: FC<Props> = ({ className, onChange, ...props }) => {
         {...props}
         ref={inputRef}
         type="text"
-        className={cn(
-          'w-full rounded-md border border-slate-200 bg-gray-50 py-2 pl-4 pr-10 outline-none focus:ring-2 focus:ring-slate-500',
-          className
-        )}
+        className={cn('input pl-4 pr-10 ', className)}
         onChange={(e) => {
           handleDebouncedChange(e)
           setSearch(e.target.value)
