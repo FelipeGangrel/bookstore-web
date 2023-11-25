@@ -4,7 +4,7 @@ import type { CustomFlowbiteTheme } from 'flowbite-react'
 import { Carousel } from 'flowbite-react'
 import type { FC, HTMLAttributes } from 'react'
 
-import { Button } from '@/components/client-side'
+import { Button } from '@/components/agnostic'
 
 const themeStyles = {
   scrollContainer: {
@@ -30,7 +30,7 @@ type SlideProps = HTMLAttributes<HTMLDivElement>
 
 const Slide: FC<SlideProps> = ({ children }) => {
   return (
-    <div className="flex h-full flex-col justify-center gap-4 text-white">
+    <div className="flex h-full flex-col justify-center gap-4 px-6 text-white">
       {children}
     </div>
   )
