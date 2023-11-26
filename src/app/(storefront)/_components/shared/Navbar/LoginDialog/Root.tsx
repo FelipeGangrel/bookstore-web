@@ -1,6 +1,7 @@
+'use client'
+
 import type { FC } from 'react'
 
-import { Button } from '@/components/agnostic'
 import { Dialog } from '@/components/client-side'
 
 import { LoginForm } from './LoginForm'
@@ -19,18 +20,6 @@ export const Root: FC<Props> = ({ children, ...props }) => {
           <Dialog.Body>
             <LoginForm />
           </Dialog.Body>
-          <Dialog.Footer className="flex-col">
-            <Button size="md" variant="dark" className="w-full">
-              Entrar
-            </Button>
-            <Button
-              size="md"
-              variant="light"
-              className="w-full border-transparent"
-            >
-              Criar conta
-            </Button>
-          </Dialog.Footer>
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>
