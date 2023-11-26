@@ -1,6 +1,6 @@
 'use client'
 
-import { Book, Heart, List, ShoppingCart } from '@phosphor-icons/react'
+import { Book, Heart, List, ShoppingCart, User } from '@phosphor-icons/react'
 import Link from 'next/link'
 
 import { SearchBar } from '@/components/client-side/SearchBar'
@@ -21,19 +21,27 @@ export const Navbar = () => {
         </button>
         <SearchBar
           onChange={(e) => {
-            console.log(e.target.value)
+            console.log('You searched for ', e.target.value)
           }}
         />
         <button>
           <Heart size="24" />
+          <span className="sr-only">Favorites</span>
         </button>
-        <LoginDialog />
+        <LoginDialog.Root>
+          <LoginDialog.Trigger>
+            <User size="24" />
+            <span className="sr-only">Sign in and Sign up</span>
+          </LoginDialog.Trigger>
+        </LoginDialog.Root>
         <button className="relative">
           <ShoppingCart size="24" />
-          <div className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-yellow-300 text-xs text-black">
+          <span className="sr-only">Shopping cart</span>
+          <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-yellow-300 text-xs text-black">
             3
-          </div>
+          </span>
         </button>
+        D
       </div>
     </div>
   )

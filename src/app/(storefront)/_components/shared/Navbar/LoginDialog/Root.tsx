@@ -1,17 +1,16 @@
-import { User } from '@phosphor-icons/react'
+import type { FC } from 'react'
 
 import { Button } from '@/components/agnostic'
 import { Dialog } from '@/components/client-side'
 
 import { LoginForm } from './LoginForm'
 
-export const LoginDialog = () => {
+type Props = Dialog.DialogProps
+
+export const Root: FC<Props> = ({ children, ...props }) => {
   return (
-    <Dialog.Root>
-      <Dialog.Trigger>
-        <User size="24" />
-        <span className="sr-only">Login</span>
-      </Dialog.Trigger>
+    <Dialog.Root {...props}>
+      {children}
       <Dialog.Portal>
         <Dialog.Content className="border-0">
           <Dialog.Header>
