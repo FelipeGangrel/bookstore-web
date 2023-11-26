@@ -1,4 +1,4 @@
-import type { FC, HTMLAttributes } from 'react'
+import type { ButtonHTMLAttributes, FC, HTMLAttributes } from 'react'
 import { tv } from 'tailwind-variants'
 
 import { cn } from '@/libs/styles'
@@ -30,7 +30,7 @@ const buttonClasses = tv({
   },
 })
 
-type Props = HTMLAttributes<HTMLButtonElement> & {
+type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: 'primary' | 'danger' | 'light' | 'dark'
   size?: 'sm' | 'md' | 'lg'
 }
@@ -40,11 +40,11 @@ export const Button: FC<Props> = ({
   className,
   size,
   variant,
+  type = 'button',
   ...props
 }) => {
   return (
     <button
-      type="button"
       {...props}
       className={cn(buttonClasses({ size, variant }), className)}
     >
