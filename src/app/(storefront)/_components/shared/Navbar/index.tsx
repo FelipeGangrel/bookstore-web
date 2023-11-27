@@ -1,11 +1,11 @@
 'use client'
 
-import { Book, Heart, List, ShoppingCart, User } from '@phosphor-icons/react'
+import { Book, Heart, List, ShoppingCart } from '@phosphor-icons/react'
 import Link from 'next/link'
 
 import { SearchBar } from '@/components/client-side/SearchBar'
 
-import { LoginDialog } from './LoginDialog'
+import { UserWidget } from './User'
 
 export const Navbar = () => {
   return (
@@ -28,12 +28,7 @@ export const Navbar = () => {
           <Heart size="24" />
           <span className="sr-only">Favorites</span>
         </button>
-        <LoginDialog.Root>
-          <LoginDialog.Trigger>
-            <User size="24" />
-            <span className="sr-only">Sign in and Sign up</span>
-          </LoginDialog.Trigger>
-        </LoginDialog.Root>
+        <UserWidget />
         <button className="relative">
           <ShoppingCart size="24" />
           <span className="sr-only">Shopping cart</span>
@@ -41,7 +36,6 @@ export const Navbar = () => {
             3
           </span>
         </button>
-        D
       </div>
     </div>
   )
