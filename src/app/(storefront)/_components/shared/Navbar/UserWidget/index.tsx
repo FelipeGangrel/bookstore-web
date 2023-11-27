@@ -30,14 +30,16 @@ export const UserWidget = () => {
       <Popover.Portal>
         <Popover.Content
           align="end"
-          className="z-20 rounded bg-white p-4 shadow-lg"
+          className="z-10 rounded-md border-t-[6px] border-black bg-white p-4 shadow-lg"
         >
           {status === 'loading' && <ActivityIndicator size="24" />}
 
           {status === 'authenticated' && data?.user && (
             <div className="flex flex-col gap-4">
               <div className="flex flex-row items-baseline gap-1">
-                <span className="text-lg font-semibold">{data.user.name}</span>
+                <span className="text-lg font-semibold">
+                  Olá, {data.user.name}
+                </span>
               </div>
 
               <div className="flex flex-col gap-2">
@@ -47,7 +49,15 @@ export const UserWidget = () => {
                 >
                   Minha conta
                 </Link>
+                <Link
+                  href="/purchase-history"
+                  className="text-sm text-gray-400 hover:text-gray-500"
+                >
+                  Minhas compras
+                </Link>
               </div>
+
+              <hr className="border-gray-200" />
 
               <div className="flex flex-col gap-2">
                 <button
@@ -76,6 +86,7 @@ export const UserWidget = () => {
               </div>
             </div>
           )}
+          <Popover.Arrow className="fill-black" />
         </Popover.Content>
       </Popover.Portal>
     </Popover.Root>

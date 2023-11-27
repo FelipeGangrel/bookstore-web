@@ -5,11 +5,11 @@ import Link from 'next/link'
 
 import { SearchBar } from '@/components/client-side/SearchBar'
 
-import { UserWidget } from './User'
+import { UserWidget } from './UserWidget'
 
 export const Navbar = () => {
   return (
-    <div className="fixed top-0 z-10 w-full bg-white shadow-sm">
+    <div className="fixed top-0 z-10 w-full bg-white text-black shadow-md">
       <div className="mx-auto flex h-20 max-w-5xl items-center justify-between gap-4 px-4">
         <Link href="/" className="flex gap-2 px-4">
           <Book size="24" weight="bold" />
