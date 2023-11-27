@@ -7,7 +7,7 @@ import { signOut, useSession } from 'next-auth/react'
 import { useCallback } from 'react'
 
 import { ActivityIndicator } from '@/components/agnostic'
-import { FetchClient } from '@/libs/api-fetcher'
+import { FetchClient } from '@/libs/fetch-client'
 
 export const UserWidget = () => {
   const { status, data } = useSession()

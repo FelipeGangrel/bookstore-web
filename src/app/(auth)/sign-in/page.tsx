@@ -7,7 +7,7 @@ import type { FormEvent } from 'react'
 import { useCallback, useState } from 'react'
 
 import { Button, Input } from '@/components/agnostic'
-import { FetchClient } from '@/libs/api-fetcher'
+import { FetchClient } from '@/libs/fetch-client'
 
 type ValidationErrors = {
   email?: string

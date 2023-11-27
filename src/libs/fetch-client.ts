@@ -21,10 +21,10 @@ export class FetchClient {
   private async setAuthorization(): Promise<void> {
     const session = await this.getSession()
 
-    if (session?.token) {
+    if (session?.user?.jwt) {
       this.defaultOptions.headers = {
         ...this.defaultOptions.headers,
-        Authorization: `Bearer ${session.token}`,
+        Authorization: `Bearer ${session.user.jwt}`,
       }
     }
   }
@@ -54,6 +54,8 @@ export class FetchClient {
 
   public async get(url: string): Promise<Response> {
     await this.setAuthorization()
+
+    console.log('defaultOptions', this.defaultOptions)
 
     return fetch(`${this.baseUrl}${url}`, {
       ...this.defaultOptions,
