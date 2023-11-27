@@ -89,7 +89,7 @@ export default function LoginPage() {
           Entrar
         </Button>
 
-        <Link href="/create-account">
+        <Link href="/sign-up">
           <Button
             size="md"
             variant="light"

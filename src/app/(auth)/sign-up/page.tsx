@@ -120,7 +120,7 @@ export default function CreateAccountPage() {
           Criar minha conta
         </Button>
 
-        <Link href="/login">
+        <Link href="/sign-in">
           <Button
             size="md"
             variant="light"
