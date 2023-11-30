@@ -15,7 +15,7 @@ import { UserWidget } from './UserWidget'
 
 export const Navbar = () => {
   return (
-    <div className="fixed top-0 z-10 w-full bg-white/90 text-black shadow-md backdrop-blur">
+    <div className="sticky top-0 z-10 w-full bg-white/90 text-black shadow-md backdrop-blur">
       <div className="mx-auto flex h-14 max-w-5xl items-center justify-between gap-4 px-4 md:h-20">
         <Link href="/" className="flex gap-2 hover:text-slate-500">
           <Book size="24" weight="bold" />
