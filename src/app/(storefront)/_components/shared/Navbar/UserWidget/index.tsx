@@ -1,12 +1,12 @@
 'use client'
 
 import { User } from '@phosphor-icons/react'
-import * as Popover from '@radix-ui/react-popover'
 import Link from 'next/link'
 import { signOut, useSession } from 'next-auth/react'
 import { useCallback } from 'react'
 
 import { ActivityIndicator } from '@/components/agnostic'
+import { Popover } from '@/components/client-side'
 import { FetchClient } from '@/libs/fetch-client'
 
 export const UserWidget = () => {
@@ -24,14 +24,11 @@ export const UserWidget = () => {
 
   return (
     <Popover.Root>
-      <Popover.Trigger>
+      <Popover.Trigger className="hover:text-slate-500">
         <User size="24" />
       </Popover.Trigger>
       <Popover.Portal>
-        <Popover.Content
-          align="end"
-          className="z-10 rounded-md border-t-[6px] border-black bg-white p-4 shadow-lg"
-        >
+        <Popover.Content align="end">
           {status === 'loading' && <ActivityIndicator size="24" />}
 
           {status === 'authenticated' && data?.user && (
@@ -86,7 +83,7 @@ export const UserWidget = () => {
               </div>
             </div>
           )}
-          <Popover.Arrow className="fill-black" />
+          <Popover.Arrow />
         </Popover.Content>
       </Popover.Portal>
     </Popover.Root>
