@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <main className="h-[2000px] bg-slate-300">
       <section className="bg-gray-900">
-        <Carousel>
+        <Carousel autoSlide autoSlideInterval={5000}>
           <Slide>
             <h1 className="text-6xl font-bold text-yellow-300">Slide 1</h1>
           </Slide>
