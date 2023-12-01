@@ -5,7 +5,7 @@ import { signIn } from 'next-auth/react'
 import type { FormEvent } from 'react'
 import { useCallback, useState } from 'react'
 
-import { Button, Input } from '@/components/agnostic'
+import { Button, FieldMessage, Fieldset, Input } from '@/components/agnostic'
 import { FetchClient } from '@/libs/fetch-client'
 
 type ValidationErrors = {
@@ -56,7 +56,7 @@ export default function CreateAccountPage() {
       <h4 className="text-center text-lg font-semibold">Criar minha conta</h4>
 
       <div className="flex flex-col gap-4">
-        <fieldset className="flex flex-col gap-2">
+        <Fieldset>
           <Input
             type="text"
             name="name"
@@ -65,13 +65,11 @@ export default function CreateAccountPage() {
             onChange={(e) => setName(e.target.value)}
           />
           {validationErrors?.name && (
-            <span className="text-sm text-red-500">
-              {validationErrors.name}
-            </span>
+            <FieldMessage>{validationErrors.name}</FieldMessage>
           )}
-        </fieldset>
+        </Fieldset>
 
-        <fieldset className="flex flex-col gap-2">
+        <Fieldset>
           <Input
             type="email"
             name="email"
@@ -80,13 +78,10 @@ export default function CreateAccountPage() {
             onChange={(e) => setEmail(e.target.value)}
           />
           {validationErrors?.email && (
-            <span className="text-sm text-red-500">
-              {validationErrors.email}
-            </span>
+            <FieldMessage>{validationErrors.email}</FieldMessage>
           )}
-        </fieldset>
-
-        <fieldset className="flex flex-col gap-2">
+        </Fieldset>
+        <Fieldset>
           <Input
             type="password"
             name="password"
@@ -95,24 +90,19 @@ export default function CreateAccountPage() {
             onChange={(e) => setPassword(e.target.value)}
           />
           {validationErrors?.password && (
-            <span className="text-sm text-red-500">
-              {validationErrors.password}
-            </span>
+            <FieldMessage>{validationErrors.password}</FieldMessage>
           )}
-        </fieldset>
-
-        <fieldset className="flex flex-col gap-2">
+        </Fieldset>
+        <Fieldset>
           <Input
             type="password"
             name="passwordConfirmation"
             placeholder="Confirmar senha"
           />
           {validationErrors?.passwordConfirmation && (
-            <span className="text-sm text-red-500">
-              {validationErrors.passwordConfirmation}
-            </span>
+            <FieldMessage>{validationErrors.passwordConfirmation}</FieldMessage>
           )}
-        </fieldset>
+        </Fieldset>
       </div>
 
       <div className="flex flex-col gap-4">

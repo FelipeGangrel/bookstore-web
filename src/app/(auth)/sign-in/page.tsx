@@ -6,7 +6,7 @@ import { signIn } from 'next-auth/react'
 import type { FormEvent } from 'react'
 import { useCallback, useState } from 'react'
 
-import { Button, Input } from '@/components/agnostic'
+import { Button, FieldMessage, Fieldset, Input } from '@/components/agnostic'
 
 type ValidationErrors = {
   email?: string
@@ -47,7 +47,7 @@ export default function LoginPage() {
       <h4 className="text-center text-lg font-semibold">Entrar</h4>
 
       <div className="flex flex-col gap-4">
-        <fieldset className="flex flex-col gap-2">
+        <Fieldset>
           <Input
             type="text"
             name="email"
@@ -56,23 +56,21 @@ export default function LoginPage() {
             onChange={(e) => setEmail(e.target.value)}
           />
           {validationErrors?.email && (
-            <span className="text-sm text-red-500">
-              {validationErrors.email}
-            </span>
+            <FieldMessage>{validationErrors.email}</FieldMessage>
           )}
-        </fieldset>
-        <Input
-          type="password"
-          name="password"
-          placeholder="Senha"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        {validationErrors?.password && (
-          <span className="text-sm text-red-500">
-            {validationErrors.password}
-          </span>
-        )}
+        </Fieldset>
+        <Fieldset>
+          <Input
+            type="password"
+            name="password"
+            placeholder="Senha"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          {validationErrors?.password && (
+            <FieldMessage>{validationErrors.password}</FieldMessage>
+          )}
+        </Fieldset>
       </div>
 
       <div className="flex flex-col gap-4">
