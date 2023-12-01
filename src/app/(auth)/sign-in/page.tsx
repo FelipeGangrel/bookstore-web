@@ -7,7 +7,6 @@ import type { FormEvent } from 'react'
 import { useCallback, useState } from 'react'
 
 import { Button, Input } from '@/components/agnostic'
-import { FetchClient } from '@/libs/fetch-client'
 
 type ValidationErrors = {
   email?: string
@@ -25,26 +24,18 @@ export default function LoginPage() {
     async (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault()
 
-      const fetchClient = new FetchClient()
-
-      const apiLoginResponse = await fetchClient.post('/auth/client-login', {
+      const res = await signIn('credentials', {
         email,
         password,
+        role: 'client',
+        redirect: false,
       })
 
-      const apiLoginData = await apiLoginResponse.json()
-
-      if (apiLoginData?.validationErrors) {
-        return setValidationErrors(apiLoginData.validationErrors)
-      }
-
-      if (apiLoginData?.jwt) {
-        await signIn('credentials', {
-          user: JSON.stringify(apiLoginData?.user),
-          jwt: apiLoginData.jwt,
-          redirect: false,
-        })
-
+      if (res?.error) {
+        const { message, validationErrors } = JSON.parse(res.error)
+        validationErrors && setValidationErrors(validationErrors)
+        message && alert(message)
+      } else {
         router.push('/')
       }
     },
@@ -58,7 +49,7 @@ export default function LoginPage() {
       <div className="flex flex-col gap-4">
         <fieldset className="flex flex-col gap-2">
           <Input
-            type="email"
+            type="text"
             name="email"
             placeholder="E-mail"
             value={email}
