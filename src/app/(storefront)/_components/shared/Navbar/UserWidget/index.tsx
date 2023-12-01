@@ -15,11 +15,8 @@ export const UserWidget = () => {
   const handleSignOut = useCallback(async () => {
     const fetchClient = new FetchClient()
 
-    const apiLogoutResponse = await fetchClient.get('/auth/logout')
-
-    if (apiLogoutResponse.ok) {
-      await signOut()
-    }
+    await fetchClient.get('/auth/logout')
+    await signOut()
   }, [])
 
   return (
