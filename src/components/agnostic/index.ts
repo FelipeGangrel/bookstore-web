@@ -1,3 +1,3 @@
 export * from './ActivityIndicator'
 export * from './Button'
-export * from './Input'
+export * from './forms'
