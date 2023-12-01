@@ -1,9 +1,0 @@
-version: '3.3'
-
-services:
-  mail:
-    image: mailhog/mailhog
-    container_name: bookstore-api-mail
-    ports:
-      - 1025:1025
-      - 8025:8025
