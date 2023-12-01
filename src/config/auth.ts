@@ -1,23 +1,37 @@
 import type { AuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 
+import { FetchClient } from '@/libs/fetch-client'
+
 export const authOptions: AuthOptions = {
   providers: [
     CredentialsProvider({
       name: 'credentials',
       credentials: {
-        user: {},
-        jwt: {},
+        email: {},
+        password: {},
+        role: {},
       },
       authorize: async (credentials) => {
-        if (credentials?.user) {
-          return {
-            ...JSON.parse(credentials.user),
-            jwt: credentials?.jwt,
-          }
-        }
+        const fetchClient = new FetchClient()
 
-        return null
+        const url = `/auth/${credentials?.role}-login`
+
+        const apiRes = await fetchClient.post(url, {
+          email: credentials?.email,
+          password: credentials?.password,
+        })
+
+        const apiData = await apiRes.json()
+
+        if (apiData?.user) {
+          return {
+            ...apiData.user,
+            jwt: apiData.jwt,
+          }
+        } else {
+          throw new Error(JSON.stringify(apiData))
+        }
       },
     }),
   ],
