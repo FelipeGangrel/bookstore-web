@@ -6,7 +6,13 @@ import { signIn } from 'next-auth/react'
 import type { FormEvent } from 'react'
 import { useCallback, useState } from 'react'
 
-import { Button, FieldMessage, Fieldset, Input } from '@/components/agnostic'
+import {
+  Button,
+  FieldMessage,
+  Fieldset,
+  Input,
+  Link,
+} from '@/components/agnostic'
 
 type ValidationErrors = {
   email?: string
@@ -74,6 +80,11 @@ export default function LoginPage() {
               {validationErrors.password}
             </FieldMessage>
           )}
+        </Fieldset>
+        <Fieldset>
+          <Link href="/password-reset" className="text-right">
+            Esqueci minha senha
+          </Link>
         </Fieldset>
       </div>
 
