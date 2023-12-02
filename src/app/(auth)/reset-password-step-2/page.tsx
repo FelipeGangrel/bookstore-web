@@ -3,11 +3,6 @@
 import { Button, Fieldset } from '@/components/agnostic'
 import { PinInput } from '@/components/client-side'
 
-type ValidationErrors = {
-  email?: string
-  password?: string
-}
-
 export default function ResetPwdStep2() {
   return (
     <form onSubmit={() => {}} className="flex w-full flex-col gap-8">
@@ -28,7 +23,7 @@ export default function ResetPwdStep2() {
       </div>
 
       <div className="flex flex-col gap-4">
-        <Button type="submit" size="md" variant="dark" className="w-full">
+        <Button type="submit" className="w-full">
           Enviar código
         </Button>
       </div>

@@ -78,12 +78,12 @@ export default function LoginPage() {
       </div>
 
       <div className="flex flex-col gap-4">
-        <Button type="submit" size="md" color="primary" className="w-full">
+        <Button type="submit" className="w-full">
           Entrar
         </Button>
 
         <NextLink href="/sign-up">
-          <Button size="md" color="secondary" className="w-full">
+          <Button color="secondary" className="w-full">
             Ainda não tenho uma conta
           </Button>
         </NextLink>

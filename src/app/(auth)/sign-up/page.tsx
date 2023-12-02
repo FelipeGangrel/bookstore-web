@@ -126,12 +126,12 @@ export default function CreateAccountPage() {
       </div>
 
       <div className="flex flex-col gap-4">
-        <Button type="submit" size="md" color="primary" className="w-full">
+        <Button type="submit" className="w-full">
           Criar minha conta
         </Button>
 
         <NextLink href="/sign-in">
-          <Button size="md" color="secondary" className="w-full">
+          <Button color="secondary" className="w-full">
             Voltar
           </Button>
         </NextLink>
