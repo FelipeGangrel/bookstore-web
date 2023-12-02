@@ -1,8 +1,10 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
 import { signIn } from 'next-auth/react'
 import type { SyntheticEvent } from 'react'
 import { useCallback, useState } from 'react'
+import { toast } from 'react-toastify'
 
 import {
   Button,
@@ -31,6 +33,8 @@ export default function PasswordResetPage() {
   })
   const [validationErrors, setValidationErrors] = useState<ValidationErrors>({})
 
+  const router = useRouter()
+
   const generatePasswordResetToken = useCallback(async (email: string) => {
     const fetchClient = new FetchClient()
     const url = '/password-reset/generate-token'
@@ -42,10 +46,11 @@ export default function PasswordResetPage() {
     if (!apiResponse.ok) {
       const { message, validationErrors } = await apiResponse.json()
       validationErrors && setValidationErrors(validationErrors)
-      message && alert(message)
+      message && toast.warning(message)
     } else {
       setEmail(email)
       setStep('token-and-password')
+      toast.info('Código de verificação enviado para seu e-mail!')
     }
   }, [])
 
@@ -63,19 +68,24 @@ export default function PasswordResetPage() {
       if (!apiResponse.ok) {
         const { message, validationErrors } = await apiResponse.json()
         validationErrors && setValidationErrors(validationErrors)
-        message && alert(message)
+        message && toast.warning(message)
       }
 
       if (apiResponse.ok) {
-        await signIn('credentials', {
+        toast.success('Senha atualizada com sucesso!')
+        const signInResponse = await signIn('credentials', {
           email,
           password,
           role: 'client',
-          callbackUrl: '/',
+          redirect: false,
         })
+
+        if (signInResponse?.ok) {
+          router.push('/')
+        }
       }
     },
-    [email]
+    [email, router]
   )
 
   const handleFormSubmit = useCallback(

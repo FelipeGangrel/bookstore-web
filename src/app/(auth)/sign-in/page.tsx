@@ -1,9 +1,11 @@
 'use client'
 
 import NextLink from 'next/link'
+import { useRouter } from 'next/navigation'
 import { signIn } from 'next-auth/react'
 import type { SyntheticEvent } from 'react'
 import { useCallback, useState } from 'react'
+import { toast } from 'react-toastify'
 
 import {
   Button,
@@ -22,6 +24,8 @@ type ValidationErrors = {
 export default function SignInPage() {
   const [validationErrors, setValidationErrors] = useState<ValidationErrors>({})
 
+  const router = useRouter()
+
   const handleSubmit = useCallback(
     async (event: SyntheticEvent<HTMLFormElement>) => {
       event.preventDefault()
@@ -31,16 +35,19 @@ export default function SignInPage() {
       const res = await signIn('credentials', {
         ...Object.fromEntries(formData),
         role: 'client',
-        callbackUrl: '/',
+        redirect: false,
       })
 
       if (res?.error) {
         const { message, validationErrors } = JSON.parse(res.error)
         validationErrors && setValidationErrors(validationErrors)
-        message && alert(message)
+        message && toast.warning(message)
+      } else {
+        toast.success('Login efetuado com sucesso!')
+        router.push('/')
       }
     },
-    []
+    [router]
   )
 
   return (
@@ -67,7 +74,7 @@ export default function SignInPage() {
           )}
         </Fieldset>
         <Fieldset>
-          <Link href="/password-reset" className="text-right">
+          <Link href="/password-reset" className="ml-auto">
             Esqueci minha senha
           </Link>
         </Fieldset>
