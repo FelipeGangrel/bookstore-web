@@ -1,11 +1,10 @@
 'use client'
 
 import { User } from '@phosphor-icons/react'
-import Link from 'next/link'
 import { signOut, useSession } from 'next-auth/react'
 import { useCallback } from 'react'
 
-import { ActivityIndicator } from '@/components/agnostic'
+import { ActivityIndicator, Link } from '@/components/agnostic'
 import { Popover } from '@/components/client-side'
 import { FetchClient } from '@/libs/fetch-client'
 
@@ -37,16 +36,10 @@ export const UserWidget = () => {
               </div>
 
               <div className="flex flex-col gap-2">
-                <Link
-                  href="/account"
-                  className="text-sm text-gray-400 hover:text-gray-500"
-                >
+                <Link href="/account" size="sm" color="secondary">
                   Minha conta
                 </Link>
-                <Link
-                  href="/purchase-history"
-                  className="text-sm text-gray-400 hover:text-gray-500"
-                >
+                <Link href="/purchase-history" size="sm" color="secondary">
                   Minhas compras
                 </Link>
               </div>
@@ -54,12 +47,14 @@ export const UserWidget = () => {
               <hr className="border-gray-200" />
 
               <div className="flex flex-col gap-2">
-                <button
-                  className="text-left text-sm text-gray-400 hover:text-gray-500"
+                <Link
+                  href="/"
+                  size="sm"
+                  color="secondary"
                   onClick={handleSignOut}
                 >
                   Sair
-                </button>
+                </Link>
               </div>
             </div>
           )}

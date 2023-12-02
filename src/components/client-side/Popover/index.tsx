@@ -20,7 +20,10 @@ export { Portal, Root, Trigger } from '@radix-ui/react-popover'
 export const Content: FC<PopoverContentProps> = ({ className, ...props }) => (
   <RContent
     {...props}
-    className={cn('z-10 rounded-md bg-white p-4 shadow-md', className)}
+    className={cn(
+      'z-10 rounded-md bg-white p-4 shadow-md outline-none',
+      className
+    )}
   />
 )
 

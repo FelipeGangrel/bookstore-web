@@ -109,7 +109,7 @@ export default function PasswordResetPage() {
     <form onSubmit={handleFormSubmit} className="flex w-full flex-col gap-8">
       <h4 className="text-center text-lg font-semibold">
         {step === 'email' && 'Informe seu e-mail'}
-        {step === 'token-and-password' && 'Informe o código de verificação'}
+        {step === 'token-and-password' && 'Redefina sua senha'}
       </h4>
 
       <div className="flex flex-col gap-4">
