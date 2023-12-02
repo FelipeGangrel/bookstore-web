@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link'
+import NextLink from 'next/link'
 import { signIn } from 'next-auth/react'
 import type { FormEvent } from 'react'
 import { useCallback, useState } from 'react'
@@ -126,19 +126,15 @@ export default function CreateAccountPage() {
       </div>
 
       <div className="flex flex-col gap-4">
-        <Button type="submit" size="md" variant="dark" className="w-full">
+        <Button type="submit" size="md" color="primary" className="w-full">
           Criar minha conta
         </Button>
 
-        <Link href="/sign-in">
-          <Button
-            size="md"
-            variant="light"
-            className="w-full border-transparent"
-          >
+        <NextLink href="/sign-in">
+          <Button size="md" color="secondary" className="w-full">
             Voltar
           </Button>
-        </Link>
+        </NextLink>
       </div>
     </form>
   )

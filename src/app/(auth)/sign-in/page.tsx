@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link'
+import NextLink from 'next/link'
 import { useRouter } from 'next/navigation'
 import { signIn } from 'next-auth/react'
 import type { FormEvent } from 'react'
@@ -78,19 +78,15 @@ export default function LoginPage() {
       </div>
 
       <div className="flex flex-col gap-4">
-        <Button type="submit" size="md" variant="dark" className="w-full">
+        <Button type="submit" size="md" color="primary" className="w-full">
           Entrar
         </Button>
 
-        <Link href="/sign-up">
-          <Button
-            size="md"
-            variant="light"
-            className="w-full border-transparent"
-          >
+        <NextLink href="/sign-up">
+          <Button size="md" color="secondary" className="w-full">
             Ainda não tenho uma conta
           </Button>
-        </Link>
+        </NextLink>
       </div>
     </form>
   )
