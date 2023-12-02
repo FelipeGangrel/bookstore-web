@@ -11,9 +11,17 @@ import { useCallback, useEffect, useState } from 'react'
 import { Input } from '@/components/agnostic'
 import { cn } from '@/libs/styles'
 
+type OnPinChange = ({
+  complete,
+  value,
+}: {
+  complete: boolean
+  value: string
+}) => void
+
 type props = HTMLAttributes<Omit<HTMLDivElement, 'children'>> & {
   length?: number
-  onChange?: ({ complete, value }: { complete: boolean; value: string }) => void
+  onPinChange?: OnPinChange
   inputClassName?: string
 }
 
@@ -21,7 +29,7 @@ export const PinInput: FC<props> = ({
   length = 6,
   className,
   inputClassName,
-  onChange,
+  onPinChange,
   ...props
 }) => {
   const emptyPin = Array.from(Array(length).keys()).map((n) => ({
@@ -124,8 +132,8 @@ export const PinInput: FC<props> = ({
   useEffect(() => {
     const value = pin.map(({ value }) => value).join('')
     const complete = value.length === length
-    onChange && onChange({ complete, value })
-  }, [length, onChange, pin])
+    onPinChange?.({ complete, value })
+  }, [length, onPinChange, pin])
 
   return (
     <div
