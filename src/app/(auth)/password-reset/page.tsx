@@ -1,8 +1,9 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import type { SyntheticEvent } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 
-import { Button, Fieldset, Input } from '@/components/agnostic'
+import { Button, Fieldset, Input, Label } from '@/components/agnostic'
 import { PinInput } from '@/components/client-side'
 
 type ResetStep = 'email' | 'code' | 'password'
@@ -32,13 +33,24 @@ export default function PasswordResetPage() {
     }
   }, [step])
 
+  const handleFormSubmit = useCallback(
+    (event: SyntheticEvent<HTMLFormElement>) => {
+      event.preventDefault()
+
+      const formData = new FormData(event.currentTarget)
+      console.log(Object.fromEntries(formData))
+    },
+    []
+  )
+
   return (
-    <form onSubmit={() => {}} className="flex w-full flex-col gap-8">
+    <form onSubmit={handleFormSubmit} className="flex w-full flex-col gap-8">
       <h4 className="text-center text-lg font-semibold">{title}</h4>
 
       <div className="flex flex-col gap-4">
         {step === 'email' && (
           <Fieldset>
+            <Label htmlFor="email">E-mail</Label>
             <Input name="email" />
           </Fieldset>
         )}
