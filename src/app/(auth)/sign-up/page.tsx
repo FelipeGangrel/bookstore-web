@@ -19,12 +19,21 @@ export default function CreateAccountPage() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [passwordConfirmation, setPasswordConfirmation] = useState('')
 
   const [validationErrors, setValidationErrors] = useState<ValidationErrors>({})
 
   const handleSubmit = useCallback(
     async (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault()
+
+      setValidationErrors((state) => ({
+        ...state,
+        passwordConfirmation:
+          password !== passwordConfirmation
+            ? 'As senhas não coincidem'
+            : undefined,
+      }))
 
       const fetchClient = new FetchClient()
 
@@ -37,7 +46,10 @@ export default function CreateAccountPage() {
       const apiCreateClientData = await apiCreateClientResponse.json()
 
       if (apiCreateClientData?.validationErrors) {
-        return setValidationErrors(apiCreateClientData.validationErrors)
+        return setValidationErrors((state) => ({
+          ...state,
+          ...apiCreateClientData.validationErrors,
+        }))
       }
 
       if (apiCreateClientData?.token) {
@@ -48,7 +60,7 @@ export default function CreateAccountPage() {
         })
       }
     },
-    [email, name, password]
+    [email, name, password, passwordConfirmation]
   )
 
   return (
@@ -65,7 +77,7 @@ export default function CreateAccountPage() {
             onChange={(e) => setName(e.target.value)}
           />
           {validationErrors?.name && (
-            <FieldMessage>{validationErrors.name}</FieldMessage>
+            <FieldMessage variant="error">{validationErrors.name}</FieldMessage>
           )}
         </Fieldset>
 
@@ -78,7 +90,9 @@ export default function CreateAccountPage() {
             onChange={(e) => setEmail(e.target.value)}
           />
           {validationErrors?.email && (
-            <FieldMessage>{validationErrors.email}</FieldMessage>
+            <FieldMessage variant="error">
+              {validationErrors.email}
+            </FieldMessage>
           )}
         </Fieldset>
         <Fieldset>
@@ -90,7 +104,9 @@ export default function CreateAccountPage() {
             onChange={(e) => setPassword(e.target.value)}
           />
           {validationErrors?.password && (
-            <FieldMessage>{validationErrors.password}</FieldMessage>
+            <FieldMessage variant="error">
+              {validationErrors.password}
+            </FieldMessage>
           )}
         </Fieldset>
         <Fieldset>
@@ -98,9 +114,13 @@ export default function CreateAccountPage() {
             type="password"
             name="passwordConfirmation"
             placeholder="Confirmar senha"
+            value={passwordConfirmation}
+            onChange={(e) => setPasswordConfirmation(e.target.value)}
           />
           {validationErrors?.passwordConfirmation && (
-            <FieldMessage>{validationErrors.passwordConfirmation}</FieldMessage>
+            <FieldMessage variant="error">
+              {validationErrors.passwordConfirmation}
+            </FieldMessage>
           )}
         </Fieldset>
       </div>
