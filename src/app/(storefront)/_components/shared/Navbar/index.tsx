@@ -1,47 +1,53 @@
 'use client'
 
-import { Book, Heart, List, ShoppingCart, User } from '@phosphor-icons/react'
+import {
+  Book,
+  Heart,
+  List,
+  MagnifyingGlass,
+  ShoppingCart,
+} from '@phosphor-icons/react'
 import Link from 'next/link'
 
 import { SearchBar } from '@/components/client-side/SearchBar'
 
-import { LoginDialog } from './LoginDialog'
+import { UserWidget } from './UserWidget'
 
 export const Navbar = () => {
   return (
-    <div className="fixed top-0 z-10 w-full bg-white shadow-sm">
-      <div className="mx-auto flex h-20 max-w-5xl items-center justify-between gap-4 px-4">
-        <Link href="/" className="flex gap-2 px-4">
+    <div className="sticky top-0 z-10 w-full bg-white/90 text-black shadow-md backdrop-blur">
+      <div className="mx-auto flex h-14 max-w-5xl items-center justify-between gap-4 px-4 md:h-20">
+        <Link href="/" className="flex gap-2 hover:text-slate-500">
           <Book size="24" weight="bold" />
-          <span className="font-extrabold">BookStore</span>
+          <span className="hidden font-extrabold md:flex">BookStore</span>
         </Link>
-        <button className="flex gap-2">
+        <button className="flex gap-2 hover:text-slate-500">
           <List size="24" />
           <span>Categorias</span>
         </button>
-        <SearchBar
-          onChange={(e) => {
-            console.log('You searched for ', e.target.value)
-          }}
-        />
-        <button>
+        <div className="hidden flex-1 md:flex">
+          <SearchBar
+            onChange={(e) => {
+              console.log('You searched for ', e.target.value)
+            }}
+          />
+        </div>
+        <button className="ml-auto hover:text-slate-500 md:hidden">
+          <MagnifyingGlass size="24" />
+          <span className="sr-only">Favorites</span>
+        </button>
+        <button className="hover:text-slate-500">
           <Heart size="24" />
           <span className="sr-only">Favorites</span>
         </button>
-        <LoginDialog.Root>
-          <LoginDialog.Trigger>
-            <User size="24" />
-            <span className="sr-only">Sign in and Sign up</span>
-          </LoginDialog.Trigger>
-        </LoginDialog.Root>
-        <button className="relative">
+        <UserWidget />
+        <button className="relative hover:text-slate-500">
           <ShoppingCart size="24" />
           <span className="sr-only">Shopping cart</span>
-          <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-yellow-300 text-xs text-black">
+          <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-amber-300 text-xs text-black">
             3
           </span>
         </button>
-        D
       </div>
     </div>
   )
