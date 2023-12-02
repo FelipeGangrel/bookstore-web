@@ -1,9 +1,8 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
 import { signIn } from 'next-auth/react'
 import type { SyntheticEvent } from 'react'
-import { useCallback, useMemo, useState } from 'react'
+import { useCallback, useState } from 'react'
 
 import {
   Button,
@@ -31,8 +30,6 @@ export default function PasswordResetPage() {
     value: '',
   })
   const [validationErrors, setValidationErrors] = useState<ValidationErrors>({})
-
-  const router = useRouter()
 
   const generatePasswordResetToken = useCallback(async (email: string) => {
     const fetchClient = new FetchClient()

@@ -1,7 +1,6 @@
 'use client'
 
 import NextLink from 'next/link'
-import { useRouter } from 'next/navigation'
 import { signIn } from 'next-auth/react'
 import type { SyntheticEvent } from 'react'
 import { useCallback, useState } from 'react'
@@ -22,8 +21,6 @@ type ValidationErrors = {
 
 export default function SignInPage() {
   const [validationErrors, setValidationErrors] = useState<ValidationErrors>({})
-
-  const router = useRouter()
 
   const handleSubmit = useCallback(
     async (event: SyntheticEvent<HTMLFormElement>) => {
