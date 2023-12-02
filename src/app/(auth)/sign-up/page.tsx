@@ -5,7 +5,13 @@ import { signIn } from 'next-auth/react'
 import type { FormEvent } from 'react'
 import { useCallback, useState } from 'react'
 
-import { Button, FieldMessage, Fieldset, Input } from '@/components/agnostic'
+import {
+  Button,
+  FieldMessage,
+  Fieldset,
+  Input,
+  Label,
+} from '@/components/agnostic'
 import { FetchClient } from '@/libs/fetch-client'
 
 type ValidationErrors = {
@@ -15,7 +21,7 @@ type ValidationErrors = {
   passwordConfirmation?: string
 }
 
-export default function CreateAccountPage() {
+export default function SignUpPage() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -69,6 +75,7 @@ export default function CreateAccountPage() {
 
       <div className="flex flex-col gap-4">
         <Fieldset>
+          <Label htmlFor="name">Nome completo</Label>
           <Input
             type="text"
             name="name"
@@ -82,6 +89,7 @@ export default function CreateAccountPage() {
         </Fieldset>
 
         <Fieldset>
+          <Label htmlFor="email">E-mail</Label>
           <Input
             type="email"
             name="email"
@@ -96,6 +104,7 @@ export default function CreateAccountPage() {
           )}
         </Fieldset>
         <Fieldset>
+          <Label htmlFor="password">Senha</Label>
           <Input
             type="password"
             name="password"
@@ -110,6 +119,7 @@ export default function CreateAccountPage() {
           )}
         </Fieldset>
         <Fieldset>
+          <Label htmlFor="passwordConfirmation">Confirmar senha</Label>
           <Input
             type="password"
             name="passwordConfirmation"

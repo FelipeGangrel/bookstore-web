@@ -11,6 +11,7 @@ import {
   FieldMessage,
   Fieldset,
   Input,
+  Label,
   Link,
 } from '@/components/agnostic'
 
@@ -19,7 +20,7 @@ type ValidationErrors = {
   password?: string
 }
 
-export default function LoginPage() {
+export default function SignInPage() {
   const [email, setEmail] = useState('client@example.com')
   const [password, setPassword] = useState('123456')
   const [validationErrors, setValidationErrors] = useState<ValidationErrors>({})
@@ -54,6 +55,7 @@ export default function LoginPage() {
 
       <div className="flex flex-col gap-4">
         <Fieldset>
+          <Label htmlFor="email">E-mail</Label>
           <Input
             type="text"
             name="email"
@@ -68,6 +70,7 @@ export default function LoginPage() {
           )}
         </Fieldset>
         <Fieldset>
+          <Label htmlFor="password">Senha</Label>
           <Input
             type="password"
             name="password"
