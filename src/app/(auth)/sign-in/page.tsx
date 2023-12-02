@@ -3,7 +3,7 @@
 import NextLink from 'next/link'
 import { useRouter } from 'next/navigation'
 import { signIn } from 'next-auth/react'
-import type { FormEvent } from 'react'
+import type { SyntheticEvent } from 'react'
 import { useCallback, useState } from 'react'
 
 import {
@@ -21,19 +21,18 @@ type ValidationErrors = {
 }
 
 export default function SignInPage() {
-  const [email, setEmail] = useState('client@example.com')
-  const [password, setPassword] = useState('123456')
   const [validationErrors, setValidationErrors] = useState<ValidationErrors>({})
 
   const router = useRouter()
 
   const handleSubmit = useCallback(
-    async (e: FormEvent<HTMLFormElement>) => {
-      e.preventDefault()
+    async (event: SyntheticEvent<HTMLFormElement>) => {
+      event.preventDefault()
+
+      const formData = new FormData(event.currentTarget)
 
       const res = await signIn('credentials', {
-        email,
-        password,
+        ...Object.fromEntries(formData),
         role: 'client',
         redirect: false,
       })
@@ -46,7 +45,7 @@ export default function SignInPage() {
         router.push('/')
       }
     },
-    [email, password, router]
+    [router]
   )
 
   return (
@@ -56,13 +55,7 @@ export default function SignInPage() {
       <div className="flex flex-col gap-4">
         <Fieldset>
           <Label htmlFor="email">E-mail</Label>
-          <Input
-            type="text"
-            name="email"
-            placeholder="E-mail"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
+          <Input name="email" placeholder="E-mail" />
           {validationErrors?.email && (
             <FieldMessage variant="error">
               {validationErrors.email}
@@ -71,13 +64,7 @@ export default function SignInPage() {
         </Fieldset>
         <Fieldset>
           <Label htmlFor="password">Senha</Label>
-          <Input
-            type="password"
-            name="password"
-            placeholder="Senha"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          <Input type="password" name="password" placeholder="Senha" />
           {validationErrors?.password && (
             <FieldMessage variant="error">
               {validationErrors.password}
