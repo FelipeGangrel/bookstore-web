@@ -1,9 +1,11 @@
 'use client'
 
 import NextLink from 'next/link'
+import { useRouter } from 'next/navigation'
 import { signIn } from 'next-auth/react'
 import type { FormEvent, SyntheticEvent } from 'react'
 import { useCallback, useState } from 'react'
+import { toast } from 'react-toastify'
 
 import {
   Button,
@@ -24,40 +26,57 @@ type ValidationErrors = {
 export default function SignUpPage() {
   const [validationErrors, setValidationErrors] = useState<ValidationErrors>({})
 
+  const router = useRouter()
+
   const handleSubmit = useCallback(
     async (event: SyntheticEvent<HTMLFormElement>) => {
       event.preventDefault()
+      setValidationErrors({})
 
       const formData = new FormData(event.currentTarget)
       const data = Object.fromEntries(formData)
 
-      const fetchClient = new FetchClient()
+      if (data.password !== data.passwordConfirmation) {
+        return setValidationErrors((state) => ({
+          ...state,
+          passwordConfirmation: 'As senhas não conferem',
+        }))
+      }
 
-      const apiCreateClientResponse = await fetchClient.post('/clients', {
+      const fetchClient = new FetchClient()
+      const url = '/users/register-client'
+
+      const apiResponse = await fetchClient.post(url, {
         name: data.name,
         email: data.email,
         password: data.password,
       })
 
-      const apiCreateClientData = await apiCreateClientResponse.json()
+      if (!apiResponse.ok) {
+        const { message, validationErrors } = await apiResponse.json()
 
-      if (apiCreateClientData?.validationErrors) {
-        return setValidationErrors((state) => ({
-          ...state,
-          ...apiCreateClientData.validationErrors,
-        }))
-      }
+        validationErrors &&
+          setValidationErrors((state) => ({
+            ...state,
+            ...validationErrors,
+          }))
 
-      if (apiCreateClientData?.token) {
-        await signIn('credentials', {
+        message && toast.warning(message)
+      } else {
+        const signInResponse = await signIn('credentials', {
           email: data.email,
           password: data.password,
           role: 'client',
           redirect: false,
         })
+
+        if (signInResponse?.ok) {
+          toast.success('Conta criada com sucesso!')
+          router.push('/')
+        }
       }
     },
-    []
+    [router]
   )
 
   return (
