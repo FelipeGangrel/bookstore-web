@@ -69,10 +69,7 @@ export default function PasswordResetPage() {
         const { message, validationErrors } = await apiResponse.json()
         validationErrors && setValidationErrors(validationErrors)
         message && toast.warning(message)
-      }
-
-      if (apiResponse.ok) {
-        toast.success('Senha atualizada com sucesso!')
+      } else {
         const signInResponse = await signIn('credentials', {
           email,
           password,
@@ -81,6 +78,7 @@ export default function PasswordResetPage() {
         })
 
         if (signInResponse?.ok) {
+          toast.success('Senha atualizada com sucesso!')
           router.push('/')
         }
       }
