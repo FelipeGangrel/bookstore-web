@@ -5,5 +5,5 @@ import { cn } from '@/libs/styles'
 type Props = InputHTMLAttributes<HTMLInputElement>
 
 export const Input: FC<Props> = ({ className, ...props }) => {
-  return <input {...props} className={cn('input', className)} />
+  return <input type="text" {...props} className={cn('input', className)} />
 }
