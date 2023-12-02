@@ -56,7 +56,9 @@ export default function LoginPage() {
             onChange={(e) => setEmail(e.target.value)}
           />
           {validationErrors?.email && (
-            <FieldMessage>{validationErrors.email}</FieldMessage>
+            <FieldMessage variant="error">
+              {validationErrors.email}
+            </FieldMessage>
           )}
         </Fieldset>
         <Fieldset>
@@ -68,7 +70,9 @@ export default function LoginPage() {
             onChange={(e) => setPassword(e.target.value)}
           />
           {validationErrors?.password && (
-            <FieldMessage>{validationErrors.password}</FieldMessage>
+            <FieldMessage variant="error">
+              {validationErrors.password}
+            </FieldMessage>
           )}
         </Fieldset>
       </div>
