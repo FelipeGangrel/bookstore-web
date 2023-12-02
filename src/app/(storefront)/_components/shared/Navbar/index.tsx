@@ -44,7 +44,7 @@ export const Navbar = () => {
         <button className="relative hover:text-slate-500">
           <ShoppingCart size="24" />
           <span className="sr-only">Shopping cart</span>
-          <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-yellow-300 text-xs text-black">
+          <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-amber-300 text-xs text-black">
             3
           </span>
         </button>
