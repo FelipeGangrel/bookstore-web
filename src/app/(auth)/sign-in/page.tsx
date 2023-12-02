@@ -34,18 +34,16 @@ export default function SignInPage() {
       const res = await signIn('credentials', {
         ...Object.fromEntries(formData),
         role: 'client',
-        redirect: false,
+        callbackUrl: '/',
       })
 
       if (res?.error) {
         const { message, validationErrors } = JSON.parse(res.error)
         validationErrors && setValidationErrors(validationErrors)
         message && alert(message)
-      } else {
-        router.push('/')
       }
     },
-    [router]
+    []
   )
 
   return (
