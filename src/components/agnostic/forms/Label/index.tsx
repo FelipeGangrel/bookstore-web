@@ -1,8 +1,8 @@
-import type { FC, HTMLAttributes } from 'react'
+import type { FC, LabelHTMLAttributes } from 'react'
 
 import { cn } from '@/libs/styles'
 
-type Props = HTMLAttributes<HTMLLabelElement>
+type Props = LabelHTMLAttributes<HTMLLabelElement>
 
 export const Label: FC<Props> = ({ className, ...props }) => {
   return (
