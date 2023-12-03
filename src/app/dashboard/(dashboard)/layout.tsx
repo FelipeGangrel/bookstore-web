@@ -3,10 +3,9 @@
 import { redirect } from 'next/navigation'
 import { useSession } from 'next-auth/react'
 
+import { Navbar, Sidebar } from '@/components/dashboard/layout'
 import { ActivityIndicator } from '@/components/shared/agnostic'
 import { frontend } from '@/libs/navigation'
-
-import { Navbar, Sidebar } from './_components/shared'
 
 type Props = {
   readonly children: React.ReactNode

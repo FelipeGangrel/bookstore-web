@@ -1,4 +1,4 @@
-import { Header } from './_components/shared'
+import { Header } from '@/components/dashboard/layout'
 
 export default function DashboardPage() {
   return (

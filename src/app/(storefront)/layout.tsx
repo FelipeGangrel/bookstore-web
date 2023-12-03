@@ -1,4 +1,4 @@
-import { Footer, Navbar } from './_components/shared'
+import { Footer, Navbar } from '@/components/storefront/layout'
 
 type Props = {
   readonly children: React.ReactNode
