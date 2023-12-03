@@ -55,32 +55,29 @@ export class FetchClient {
   public async get(url: string): Promise<Response> {
     await this.setAuthorization()
 
-    console.log('defaultOptions', this.defaultOptions)
-
     return fetch(`${this.baseUrl}${url}`, {
       ...this.defaultOptions,
       method: 'GET',
     })
   }
 
-  public async post(url: string, body: any): Promise<Response> {
+  public async post(url: string, body?: any): Promise<Response> {
     await this.setAuthorization()
 
     return fetch(`${this.baseUrl}${url}`, {
       ...this.defaultOptions,
+      ...(body && { body: JSON.stringify(body) }),
       method: 'POST',
-      body: JSON.stringify(body),
-      cache: 'no-cache',
     })
   }
 
-  public async put(url: string, body: any): Promise<Response> {
+  public async put(url: string, body?: any): Promise<Response> {
     await this.setAuthorization()
 
     return fetch(`${this.baseUrl}${url}`, {
       ...this.defaultOptions,
+      ...(body && { body: JSON.stringify(body) }),
       method: 'PUT',
-      body: JSON.stringify(body),
     })
   }
 
