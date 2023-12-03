@@ -15,7 +15,7 @@ import {
 } from '@/components/shared/agnostic'
 import { PinInput } from '@/components/shared/client-side'
 import { FetchClient } from '@/libs/fetch-client'
-import { frontend } from '@/libs/navigation'
+import { backend, frontend } from '@/libs/navigation'
 
 type Props = {
   role: 'client' | 'admin'
@@ -45,7 +45,7 @@ export const PasswordResetForm: FC<Props> = ({ role }) => {
 
   const generatePasswordResetToken = useCallback(async (email: string) => {
     const fetchClient = new FetchClient()
-    const url = '/password-reset/generate-token'
+    const url = backend.passwordReset.generateToken()
 
     const apiResponse = await fetchClient.post(url, {
       email,
@@ -65,7 +65,7 @@ export const PasswordResetForm: FC<Props> = ({ role }) => {
   const updatePassword = useCallback(
     async (password: string, token: string) => {
       const fetchClient = new FetchClient()
-      const url = '/password-reset/update-password'
+      const url = backend.passwordReset.updatePassword()
 
       const apiResponse = await fetchClient.post(url, {
         email,

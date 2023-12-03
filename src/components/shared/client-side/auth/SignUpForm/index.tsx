@@ -15,7 +15,7 @@ import {
   Label,
 } from '@/components/shared/agnostic'
 import { FetchClient } from '@/libs/fetch-client'
-import { frontend } from '@/libs/navigation'
+import { backend, frontend } from '@/libs/navigation'
 
 type ValidationErrors = {
   name?: string
@@ -47,7 +47,7 @@ export const SignUpForm = () => {
       }
 
       const fetchClient = new FetchClient()
-      const url = '/users/register-client'
+      const url = backend.users.clientSignUp()
 
       const apiResponse = await fetchClient.post(url, {
         name: data.name,

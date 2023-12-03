@@ -2,6 +2,7 @@ import type { AuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 
 import { FetchClient } from '@/libs/fetch-client'
+import { backend } from '@/libs/navigation'
 
 export const authOptions: AuthOptions = {
   providers: [
@@ -15,7 +16,10 @@ export const authOptions: AuthOptions = {
       authorize: async (credentials) => {
         const fetchClient = new FetchClient()
 
-        const url = `/auth/${credentials?.role}-login`
+        const url =
+          credentials?.role === 'admin'
+            ? backend.auth.adminSignIn()
+            : backend.auth.clientSignIn()
 
         const apiRes = await fetchClient.post(url, {
           email: credentials?.email,

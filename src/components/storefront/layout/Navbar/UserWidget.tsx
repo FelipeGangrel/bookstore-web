@@ -7,7 +7,7 @@ import { useCallback } from 'react'
 import { ActivityIndicator } from '@/components/shared/agnostic'
 import { Link, Popover } from '@/components/shared/client-side'
 import { FetchClient } from '@/libs/fetch-client'
-import { frontend } from '@/libs/navigation'
+import { backend, frontend } from '@/libs/navigation'
 
 export const UserWidget = () => {
   const { status, data } = useSession()
@@ -15,7 +15,7 @@ export const UserWidget = () => {
   const handleSignOut = useCallback(async () => {
     const fetchClient = new FetchClient()
 
-    await fetchClient.get('/auth/logout')
+    await fetchClient.get(backend.auth.signOut())
     await signOut()
   }, [])
 
