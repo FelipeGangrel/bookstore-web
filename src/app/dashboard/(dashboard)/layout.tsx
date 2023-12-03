@@ -6,7 +6,7 @@ import { useSession } from 'next-auth/react'
 import { ActivityIndicator } from '@/components/agnostic'
 import { frontend } from '@/libs/navigation'
 
-import { Footer, Navbar } from './_components/shared'
+import { Navbar, Sidebar } from './_components/shared'
 
 type Props = {
   readonly children: React.ReactNode
@@ -31,8 +31,15 @@ export default function Layout({ children }: Props) {
 
   return (
     <>
-      <Navbar />
-      <main className="grow bg-slate-50">{children}</main>
+      <div className="flex min-h-screen flex-col gap-8 bg-slate-50">
+        <Navbar />
+        <div className="container mx-auto flex gap-8 pb-8">
+          <Sidebar />
+          <main className="h-[800px] w-full rounded-md border bg-white p-6 shadow-sm">
+            {children}
+          </main>
+        </div>
+      </div>
     </>
   )
 }
