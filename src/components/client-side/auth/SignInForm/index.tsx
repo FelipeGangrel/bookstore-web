@@ -13,8 +13,8 @@ import {
   Fieldset,
   Input,
   Label,
-  Link,
 } from '@/components/agnostic'
+import { Link } from '@/components/client-side'
 
 type Props = {
   role: 'client' | 'admin'

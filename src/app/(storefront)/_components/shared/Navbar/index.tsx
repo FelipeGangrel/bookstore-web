@@ -7,7 +7,7 @@ import {
   MagnifyingGlass,
   ShoppingCart,
 } from '@phosphor-icons/react'
-import Link from 'next/link'
+import NextLink from 'next/link'
 
 import { SearchBar } from '@/components/client-side/SearchBar'
 
@@ -16,11 +16,11 @@ import { UserWidget } from './UserWidget'
 export const Navbar = () => {
   return (
     <div className="sticky top-0 z-10 w-full bg-white/90 text-black shadow-md backdrop-blur">
-      <div className="mx-auto flex h-14 max-w-5xl items-center justify-between gap-4 px-4 md:h-20">
-        <Link href="/" className="flex gap-2 hover:text-slate-500">
+      <div className="container mx-auto flex h-14 items-center justify-between gap-4 px-4 md:h-20">
+        <NextLink href="/" className="flex gap-2 hover:text-slate-500">
           <Book size="24" weight="bold" />
           <span className="hidden font-extrabold md:flex">BookStore</span>
-        </Link>
+        </NextLink>
         <button className="flex gap-2 hover:text-slate-500">
           <List size="24" />
           <span>Categorias</span>

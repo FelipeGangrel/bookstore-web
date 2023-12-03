@@ -2,7 +2,7 @@ import { redirect } from 'next/navigation'
 
 import { getServerSession } from '@/libs/session'
 
-import { Navbar } from './_components/shared'
+import { Footer, Navbar } from './_components/shared'
 
 type Props = {
   readonly children: React.ReactNode
@@ -18,7 +18,8 @@ export default async function Layout({ children }: Props) {
   return (
     <>
       <Navbar />
-      {children}
+      <main className="grow bg-slate-50">{children}</main>
+      <Footer />
     </>
   )
 }
