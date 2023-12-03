@@ -11,6 +11,7 @@ export default function Layout({ children }: Props) {
         <div className="flex flex-row items-center gap-4 text-white">
           <Book size="24" />
           <span className="text-2xl font-semibold">BookStore</span>
+          <h4 className="text-amber-300">Admin Panel</h4>
         </div>
         <div className="w-full rounded-md bg-white px-6 py-4">{children}</div>
       </div>

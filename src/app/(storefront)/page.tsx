@@ -13,7 +13,7 @@ const Slide: FC<HTMLAttributes<HTMLDivElement>> = ({ children, ...props }) => (
 
 export default function Home() {
   return (
-    <main className="h-[2000px] bg-slate-300">
+    <div className="bg-slate-300">
       <section className="bg-gray-900">
         <Carousel autoSlide autoSlideInterval={5000}>
           <Slide>
@@ -27,6 +27,6 @@ export default function Home() {
           </Slide>
         </Carousel>
       </section>
-    </main>
+    </div>
   )
 }

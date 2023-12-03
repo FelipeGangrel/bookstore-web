@@ -3,5 +3,5 @@
 import { PasswordResetForm } from '@/components/client-side'
 
 export default function PasswordResetPage() {
-  return <PasswordResetForm role="client" />
+  return <PasswordResetForm role="admin" />
 }
