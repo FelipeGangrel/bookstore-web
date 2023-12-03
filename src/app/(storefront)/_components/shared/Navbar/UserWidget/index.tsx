@@ -7,6 +7,7 @@ import { useCallback } from 'react'
 import { ActivityIndicator } from '@/components/agnostic'
 import { Link, Popover } from '@/components/client-side'
 import { FetchClient } from '@/libs/fetch-client'
+import { frontend } from '@/libs/navigation'
 
 export const UserWidget = () => {
   const { status, data } = useSession()
@@ -36,10 +37,18 @@ export const UserWidget = () => {
               </div>
 
               <div className="flex flex-col gap-2">
-                <Link href="/account" size="sm" color="secondary">
+                <Link
+                  href={frontend.storefront.account.profile()}
+                  size="sm"
+                  color="secondary"
+                >
                   Minha conta
                 </Link>
-                <Link href="/purchase-history" size="sm" color="secondary">
+                <Link
+                  href={frontend.storefront.account.purchaseHistory()}
+                  size="sm"
+                  color="secondary"
+                >
                   Minhas compras
                 </Link>
               </div>
@@ -48,7 +57,7 @@ export const UserWidget = () => {
 
               <div className="flex flex-col gap-2">
                 <Link
-                  href="/"
+                  href="#"
                   size="sm"
                   color="secondary"
                   onClick={handleSignOut}
@@ -67,7 +76,7 @@ export const UserWidget = () => {
 
               <div className="flex flex-col gap-2">
                 <Link
-                  href="/sign-in"
+                  href={frontend.storefront.auth.signIn()}
                   className="text-left text-sm text-gray-400 hover:text-gray-500"
                 >
                   Entrar

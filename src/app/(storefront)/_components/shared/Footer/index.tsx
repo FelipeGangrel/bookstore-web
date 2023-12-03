@@ -3,6 +3,7 @@
 import NextLink from 'next/link'
 
 import { Link } from '@/components/client-side'
+import { frontend } from '@/libs/navigation'
 
 export const Footer = () => {
   return (
@@ -11,7 +12,7 @@ export const Footer = () => {
         <NextLink href="#" className="text-xl font-bold hover:text-gray-700">
           BookStore
         </NextLink>
-        <Link href="/admin">Painel administrativo</Link>
+        <Link href={frontend.dashboard.home()}>Painel administrativo</Link>
       </div>
     </footer>
   )
