@@ -1,3 +1,3 @@
-export default function CrateGenrePage() {
+export default function CreateGenrePage() {
   return <div>Crate genre</div>
 }
