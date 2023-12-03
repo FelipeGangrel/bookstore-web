@@ -1,8 +1,13 @@
 import type { Id } from './types'
 
 export const storefront = {
-  home: () => {
-    return '/' as const
+  account: {
+    profile: () => {
+      return '/my-account' as const
+    },
+    purchaseHistory: () => {
+      return '/purchase-history' as const
+    },
   },
   auth: {
     signIn: () => {
@@ -15,26 +20,23 @@ export const storefront = {
       return '/password-reset' as const
     },
   },
-  account: {
-    profile: () => {
-      return '/my-account' as const
-    },
-    purchaseHistory: () => {
-      return '/purchase-history' as const
-    },
-  },
   genres: {
     show: (id: Id) => {
       return `/genres/${id}`
     },
+  },
+  home: () => {
+    return '/' as const
   },
 }
 
 const dashboardRoot = '/dashboard' as const
 
 export const dashboard = {
-  home: () => {
-    return dashboardRoot
+  account: {
+    profile: () => {
+      return `${dashboardRoot}/my-account` as const
+    },
   },
   auth: {
     signIn: () => {
@@ -57,5 +59,8 @@ export const dashboard = {
     show: (id: Id) => {
       return `${dashboardRoot}/genres/show/${id}`
     },
+  },
+  home: () => {
+    return dashboardRoot
   },
 }

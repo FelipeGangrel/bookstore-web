@@ -7,6 +7,7 @@ import { useCallback } from 'react'
 import { ActivityIndicator } from '@/components/agnostic'
 import { Link, Popover } from '@/components/client-side'
 import { FetchClient } from '@/libs/fetch-client'
+import { frontend } from '@/libs/navigation'
 
 export const UserWidget = () => {
   const { status, data } = useSession()
@@ -16,7 +17,7 @@ export const UserWidget = () => {
 
     await fetchClient.get('/auth/logout')
     await signOut({
-      callbackUrl: '/',
+      callbackUrl: frontend.storefront.home(),
     })
   }, [])
 
@@ -38,8 +39,19 @@ export const UserWidget = () => {
               </div>
 
               <div className="flex flex-col gap-2">
-                <Link href="/admin/account" size="sm" color="secondary">
+                <Link
+                  href={frontend.dashboard.account.profile()}
+                  size="sm"
+                  color="secondary"
+                >
                   Minha conta
+                </Link>
+                <Link
+                  href={frontend.storefront.home()}
+                  size="sm"
+                  color="secondary"
+                >
+                  Voltar à loja
                 </Link>
               </div>
 
@@ -47,7 +59,7 @@ export const UserWidget = () => {
 
               <div className="flex flex-col gap-2">
                 <Link
-                  href="/"
+                  href="#"
                   size="sm"
                   color="secondary"
                   onClick={handleSignOut}

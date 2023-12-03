@@ -4,6 +4,7 @@ import { redirect } from 'next/navigation'
 import { useSession } from 'next-auth/react'
 
 import { ActivityIndicator } from '@/components/agnostic'
+import { frontend } from '@/libs/navigation'
 
 import { Footer, Navbar } from './_components/shared'
 
@@ -25,14 +26,13 @@ export default function Layout({ children }: Props) {
   }
 
   if (status === 'unauthenticated') {
-    return redirect('/admin/sign-in')
+    return redirect(frontend.dashboard.auth.signIn())
   }
 
   return (
     <>
       <Navbar />
       <main className="grow bg-slate-50">{children}</main>
-      <Footer />
     </>
   )
 }
