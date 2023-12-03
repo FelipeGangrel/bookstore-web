@@ -2,65 +2,35 @@ import type { Id } from './types'
 
 export const storefront = {
   account: {
-    profile: () => {
-      return '/my-account' as const
-    },
-    purchaseHistory: () => {
-      return '/purchase-history' as const
-    },
+    profile: () => '/my-account' as const,
+    purchaseHistory: () => '/purchase-history' as const,
   },
   auth: {
-    signIn: () => {
-      return '/sign-in' as const
-    },
-    signUp: () => {
-      return '/sign-up' as const
-    },
-    passwordReset: () => {
-      return '/password-reset' as const
-    },
+    signIn: () => '/sign-in' as const,
+    signUp: () => '/sign-up' as const,
+    passwordReset: () => '/password-reset' as const,
   },
   genres: {
-    show: (id: Id) => {
-      return `/genres/${id}`
-    },
+    show: (id: Id) => `/genres/${id}`,
   },
-  home: () => {
-    return '/' as const
-  },
+  home: () => '/' as const,
 }
 
 const dashboardRoot = '/dashboard' as const
 
 export const dashboard = {
   account: {
-    profile: () => {
-      return `${dashboardRoot}/my-account` as const
-    },
+    profile: () => `${dashboardRoot}/my-account` as const,
   },
   auth: {
-    signIn: () => {
-      return `${dashboardRoot}/sign-in` as const
-    },
-    passwordReset: () => {
-      return `${dashboardRoot}/password-reset` as const
-    },
+    signIn: () => `${dashboardRoot}/sign-in` as const,
+    passwordReset: () => `${dashboardRoot}/password-reset` as const,
   },
   genres: {
-    list: () => {
-      return `${dashboardRoot}/genres`
-    },
-    show: (id: Id) => {
-      return `${dashboardRoot}/genres/${id}`
-    },
-    create: () => {
-      return `${dashboardRoot}/genres/create`
-    },
-    edit: (id: Id) => {
-      return `${dashboardRoot}/genres/${id}/edit`
-    },
+    list: () => `${dashboardRoot}/genres`,
+    show: (id: Id) => `${dashboardRoot}/genres/${id}`,
+    create: () => `${dashboardRoot}/genres/create`,
+    edit: (id: Id) => `${dashboardRoot}/genres/${id}/edit`,
   },
-  home: () => {
-    return dashboardRoot
-  },
+  home: () => dashboardRoot,
 }
