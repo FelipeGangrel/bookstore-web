@@ -9,11 +9,17 @@ export const button = tv({
       danger: 'border-rose-500 bg-rose-500 text-white',
     },
     size: {
-      sm: 'px-4 py-2 text-sm',
-      md: 'px-4 py-2 text-base',
+      sm: 'text-sm',
+      md: 'text-base',
       lg: 'px-4 py-3 text-lg',
     },
   },
+  compoundVariants: [
+    {
+      size: ['sm', 'md'],
+      class: 'px-4 py-2',
+    },
+  ],
   defaultVariants: {
     size: 'md',
     color: 'primary',
