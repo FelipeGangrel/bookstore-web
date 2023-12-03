@@ -43,7 +43,8 @@ export const SignInForm: FC<Props> = ({ role }) => {
       const res = await signIn('credentials', {
         ...Object.fromEntries(formData),
         role,
-        redirect: false,
+        // redirect: true,
+        // callbackUrl: role === 'client' ? '/' : '/admin/',
       })
 
       if (res?.error) {
@@ -52,10 +53,10 @@ export const SignInForm: FC<Props> = ({ role }) => {
         message && toast.warning(message)
       } else {
         toast.success('Login efetuado com sucesso!')
-        router.push(callbackUrl)
+        router.push(role === 'client' ? '/' : '/admin')
       }
     },
-    [callbackUrl, role, router]
+    [role, router]
   )
 
   return (
@@ -89,7 +90,7 @@ export const SignInForm: FC<Props> = ({ role }) => {
       </div>
 
       <div className="flex flex-col gap-4">
-        <Button type="submit" className="w-full">
+        <Button type="submit" size="sm" className="w-full">
           Entrar
         </Button>
 

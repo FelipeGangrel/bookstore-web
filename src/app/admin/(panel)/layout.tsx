@@ -12,7 +12,7 @@ export default async function Layout({ children }: Props) {
   const session = await getServerSession()
 
   if (session?.user?.role !== 'admin') {
-    return redirect('/admin/sign-in')
+    redirect('/admin/sign-in')
   }
 
   return (
