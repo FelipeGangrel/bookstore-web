@@ -1,3 +1,5 @@
+'use client'
+
 import { Book, House, Storefront, Tag, UserList } from '@phosphor-icons/react'
 
 import { frontend } from '@/libs/navigation'
@@ -9,7 +11,7 @@ import { SidebarLinkInfo } from './SidebarLinkInfo'
 export const Sidebar = () => {
   return (
     <div className="sticky top-[72px] w-72 shrink-0 self-start md:top-[96px]">
-      <div className="rounded-md border bg-white py-6 shadow-sm">
+      <div className="rounded-md bg-white py-6 shadow">
         <div>
           <SidebarLink href={frontend.dashboard.home()}>
             <House />
@@ -32,7 +34,7 @@ export const Sidebar = () => {
               description="Livros, papelaria e outros"
             />
           </SidebarLink>
-          <SidebarLink href={frontend.dashboard.home()}>
+          <SidebarLink href={frontend.dashboard.genres.list()}>
             <Tag />
             <SidebarLinkInfo
               title="Gêneros de livros"

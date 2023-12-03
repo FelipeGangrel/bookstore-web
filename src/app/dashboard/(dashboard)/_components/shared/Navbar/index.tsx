@@ -9,7 +9,7 @@ import { UserWidget } from './UserWidget'
 
 export const Navbar = () => {
   return (
-    <div className="sticky top-0 z-10 w-full bg-white text-black shadow-sm backdrop-blur">
+    <div className="sticky top-0 z-10 w-full bg-white text-black shadow backdrop-blur">
       <div className="container mx-auto flex h-14 items-center justify-between gap-4 px-4 md:h-20">
         <NextLink
           href={frontend.dashboard.home()}
