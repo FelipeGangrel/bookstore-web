@@ -4,9 +4,9 @@ export const button = tv({
   base: 'flex items-center justify-center gap-2 rounded-md border font-medium active:opacity-80 disabled:opacity-50',
   variants: {
     color: {
-      primary: 'border-black bg-black text-white',
-      secondary: 'border-gray-300 bg-white text-black',
-      danger: 'border-rose-500 bg-rose-500 text-white',
+      primary: 'border-black bg-black text-white hover:bg-gray-800',
+      secondary: 'border-gray-300 bg-white text-black hover:bg-gray-50',
+      danger: 'border-rose-500 bg-rose-500 text-white hover:bg-rose-400',
     },
     size: {
       sm: 'text-sm',
@@ -32,7 +32,7 @@ export const link = tv({
   base: 'w-fit hover:underline active:opacity-80',
   variants: {
     color: {
-      primary: 'hover:text-gray-890 text-gray-700',
+      primary: 'text-gray-700 hover:text-gray-800',
       secondary: 'text-gray-400 hover:text-gray-500',
       danger: 'text-rose-500 hover:text-rose-300',
     },
