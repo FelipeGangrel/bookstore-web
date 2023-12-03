@@ -12,8 +12,8 @@ import {
   Fieldset,
   Input,
   Label,
-} from '@/components/agnostic'
-import { PinInput } from '@/components/client-side'
+} from '@/components/shared/agnostic'
+import { PinInput } from '@/components/shared/client-side'
 import { FetchClient } from '@/libs/fetch-client'
 import { frontend } from '@/libs/navigation'
 

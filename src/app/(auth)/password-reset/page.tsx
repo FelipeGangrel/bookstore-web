@@ -1,6 +1,6 @@
 'use client'
 
-import { PasswordResetForm } from '@/components/client-side'
+import { PasswordResetForm } from '@/components/shared/client-side'
 
 export default function PasswordResetPage() {
   return <PasswordResetForm role="client" />

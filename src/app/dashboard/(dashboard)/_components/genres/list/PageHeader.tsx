@@ -2,7 +2,7 @@
 
 import { Plus } from '@phosphor-icons/react'
 
-import { Button } from '@/components/agnostic'
+import { Button } from '@/components/shared/agnostic'
 
 import { Header } from '../../shared'
 

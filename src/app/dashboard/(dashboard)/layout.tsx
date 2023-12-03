@@ -3,7 +3,7 @@
 import { redirect } from 'next/navigation'
 import { useSession } from 'next-auth/react'
 
-import { ActivityIndicator } from '@/components/agnostic'
+import { ActivityIndicator } from '@/components/shared/agnostic'
 import { frontend } from '@/libs/navigation'
 
 import { Navbar, Sidebar } from './_components/shared'

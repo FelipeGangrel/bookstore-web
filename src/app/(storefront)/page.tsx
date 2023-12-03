@@ -1,6 +1,6 @@
 import { FC, HTMLAttributes } from 'react'
 
-import { Carousel } from '@/components/client-side'
+import { Carousel } from '@/components/shared/client-side'
 
 const Slide: FC<HTMLAttributes<HTMLDivElement>> = ({ children, ...props }) => (
   <div

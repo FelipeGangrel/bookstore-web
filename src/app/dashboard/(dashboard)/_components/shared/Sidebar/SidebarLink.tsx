@@ -1,6 +1,6 @@
 import type { FC } from 'react'
 
-import { Link } from '@/components/client-side'
+import { Link } from '@/components/shared/client-side'
 
 type Props = Parameters<typeof Link>[0]
 

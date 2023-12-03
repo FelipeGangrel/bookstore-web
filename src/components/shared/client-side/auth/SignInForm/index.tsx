@@ -13,8 +13,8 @@ import {
   Fieldset,
   Input,
   Label,
-} from '@/components/agnostic'
-import { Link } from '@/components/client-side'
+} from '@/components/shared/agnostic'
+import { Link } from '@/components/shared/client-side'
 import { frontend } from '@/libs/navigation'
 
 type Props = {

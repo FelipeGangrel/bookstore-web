@@ -9,7 +9,7 @@ import {
 } from '@phosphor-icons/react'
 import NextLink from 'next/link'
 
-import { SearchBar } from '@/components/client-side/SearchBar'
+import { SearchBar } from '@/components/shared/client-side/SearchBar'
 import { frontend } from '@/libs/navigation'
 
 import { UserWidget } from './UserWidget'

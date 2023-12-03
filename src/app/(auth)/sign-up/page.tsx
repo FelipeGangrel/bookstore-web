@@ -1,6 +1,6 @@
 'use client'
 
-import { SignUpForm } from '@/components/client-side'
+import { SignUpForm } from '@/components/shared/client-side'
 
 export default function SignUpPage() {
   return <SignUpForm />

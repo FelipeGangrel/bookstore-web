@@ -8,7 +8,7 @@ import type {
 } from 'react'
 import { useCallback, useEffect, useState } from 'react'
 
-import { Input } from '@/components/agnostic'
+import { Input } from '@/components/shared/agnostic'
 import { cn } from '@/libs/styles'
 
 type OnPinChange = ({

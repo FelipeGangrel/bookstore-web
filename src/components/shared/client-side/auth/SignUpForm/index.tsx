@@ -13,7 +13,7 @@ import {
   Fieldset,
   Input,
   Label,
-} from '@/components/agnostic'
+} from '@/components/shared/agnostic'
 import { FetchClient } from '@/libs/fetch-client'
 import { frontend } from '@/libs/navigation'
 

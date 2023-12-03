@@ -2,7 +2,7 @@
 
 import NextLink from 'next/link'
 
-import { Link } from '@/components/client-side'
+import { Link } from '@/components/shared/client-side'
 import { frontend } from '@/libs/navigation'
 
 export const Footer = () => {

@@ -4,8 +4,8 @@ import { User } from '@phosphor-icons/react'
 import { signOut, useSession } from 'next-auth/react'
 import { useCallback } from 'react'
 
-import { ActivityIndicator } from '@/components/agnostic'
-import { Link, Popover } from '@/components/client-side'
+import { ActivityIndicator } from '@/components/shared/agnostic'
+import { Link, Popover } from '@/components/shared/client-side'
 import { FetchClient } from '@/libs/fetch-client'
 import { frontend } from '@/libs/navigation'
 
