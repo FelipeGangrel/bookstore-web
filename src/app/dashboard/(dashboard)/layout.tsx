@@ -12,25 +12,23 @@ type Props = {
 }
 
 export default function Layout({ children }: Props) {
-  const { status } = useSession()
+  const { status, data } = useSession()
 
   if (status === 'loading') {
     return (
       <div className="flex h-screen items-center justify-center">
-        <div className="text-center text-xl font-bold text-slate-900">
-          <ActivityIndicator size={48} />
-        </div>
+        <ActivityIndicator size={48} />
       </div>
     )
   }
 
-  if (status === 'unauthenticated') {
+  if (status === 'unauthenticated' || data?.user?.role !== 'admin') {
     return redirect(frontend.dashboard.auth.signIn())
   }
 
   return (
     <>
-      <div className="flex min-h-screen flex-col gap-8 bg-slate-50">
+      <div className="flex min-h-screen flex-col gap-8">
         <Navbar />
         <div className="container mx-auto flex gap-8 pb-8">
           <Sidebar />

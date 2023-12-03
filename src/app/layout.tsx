@@ -22,7 +22,12 @@ type Props = {
 export default function RootLayout({ children }: Props) {
   return (
     <html lang="en">
-      <body className={cn(inter.className, 'flex min-h-screen flex-col')}>
+      <body
+        className={cn(
+          inter.className,
+          'flex min-h-screen flex-col bg-slate-50'
+        )}
+      >
         <NextSessionProvider>
           {children}
           <ToastContainer position="top-right" />
