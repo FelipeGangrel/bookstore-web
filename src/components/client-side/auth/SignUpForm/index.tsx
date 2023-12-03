@@ -15,6 +15,7 @@ import {
   Label,
 } from '@/components/agnostic'
 import { FetchClient } from '@/libs/fetch-client'
+import { frontend } from '@/libs/navigation'
 
 type ValidationErrors = {
   name?: string
@@ -24,6 +25,8 @@ type ValidationErrors = {
 }
 
 export const SignUpForm = () => {
+  const callbackUrl = frontend.storefront.home()
+
   const [validationErrors, setValidationErrors] = useState<ValidationErrors>({})
 
   const router = useRouter()
@@ -72,11 +75,11 @@ export const SignUpForm = () => {
 
         if (signInResponse?.ok) {
           toast.success('Conta criada com sucesso!')
-          router.push('/')
+          router.push(callbackUrl)
         }
       }
     },
-    [router]
+    [callbackUrl, router]
   )
 
   return (

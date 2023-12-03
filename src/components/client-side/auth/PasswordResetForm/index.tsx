@@ -15,6 +15,7 @@ import {
 } from '@/components/agnostic'
 import { PinInput } from '@/components/client-side'
 import { FetchClient } from '@/libs/fetch-client'
+import { frontend } from '@/libs/navigation'
 
 type Props = {
   role: 'client' | 'admin'
@@ -29,7 +30,8 @@ type ValidationErrors = {
 }
 
 export const PasswordResetForm: FC<Props> = ({ role }) => {
-  const callbackUrl = role === 'client' ? '/' : '/admin'
+  const callbackUrl =
+    role === 'client' ? frontend.storefront.home() : frontend.dashboard.home()
 
   const [step, setStep] = useState<ResetStep>('email')
   const [email, setEmail] = useState('')

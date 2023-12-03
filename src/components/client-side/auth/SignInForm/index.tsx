@@ -15,6 +15,7 @@ import {
   Label,
 } from '@/components/agnostic'
 import { Link } from '@/components/client-side'
+import { frontend } from '@/libs/navigation'
 
 type Props = {
   role: 'client' | 'admin'
@@ -27,8 +28,12 @@ type ValidationErrors = {
 
 export const SignInForm: FC<Props> = ({ role }) => {
   const passwordResetUrl =
-    role === 'client' ? '/password-reset' : '/admin/password-reset'
-  const callbackUrl = role === 'client' ? '/' : '/admin'
+    role === 'client'
+      ? frontend.storefront.auth.passwordReset()
+      : frontend.dashboard.auth.passwordReset()
+
+  const callbackUrl =
+    role === 'client' ? frontend.storefront.home() : frontend.dashboard.home()
 
   const [validationErrors, setValidationErrors] = useState<ValidationErrors>({})
 
