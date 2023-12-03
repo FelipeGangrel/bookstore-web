@@ -15,6 +15,14 @@ export const storefront = {
       return '/password-reset' as const
     },
   },
+  account: {
+    profile: () => {
+      return '/my-account' as const
+    },
+    purchaseHistory: () => {
+      return '/purchase-history' as const
+    },
+  },
   genres: {
     show: (id: Id) => {
       return `/genres/${id}`
