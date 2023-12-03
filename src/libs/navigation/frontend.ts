@@ -50,14 +50,14 @@ export const dashboard = {
     list: () => {
       return `${dashboardRoot}/genres`
     },
+    show: (id: Id) => {
+      return `${dashboardRoot}/genres/${id}`
+    },
     create: () => {
       return `${dashboardRoot}/genres/create`
     },
     edit: (id: Id) => {
-      return `${dashboardRoot}/genres/edit/${id}`
-    },
-    show: (id: Id) => {
-      return `${dashboardRoot}/genres/show/${id}`
+      return `${dashboardRoot}/genres/${id}/edit`
     },
   },
   home: () => {
