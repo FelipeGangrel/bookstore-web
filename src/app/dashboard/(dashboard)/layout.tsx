@@ -34,7 +34,7 @@ export default function Layout({ children }: Props) {
         <Navbar />
         <div className="container mx-auto flex gap-8 pb-8">
           <Sidebar />
-          <main className="h-[800px] w-full rounded-md bg-white p-6 shadow">
+          <main className="flex h-[800px] w-full flex-col gap-6 rounded-md bg-white p-6 shadow">
             {children}
           </main>
         </div>

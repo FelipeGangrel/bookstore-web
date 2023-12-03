@@ -18,7 +18,7 @@ export const PageHeader: FC<Props> = ({
   addActionUrl,
   addActionLabel,
 }) => (
-  <div className="flex items-center justify-between">
+  <div className="flex items-center justify-between border border-transparent border-b-slate-100 pb-4">
     <div>
       <h1 className="text-2xl font-bold text-gray-900">{title}</h1>
       {description && <p className="text-sm text-gray-500">{description}</p>}

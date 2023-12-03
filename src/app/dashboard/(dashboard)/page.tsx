@@ -1,9 +1,9 @@
-import { Header } from '@/components/dashboard/layout'
+import { PageHeader } from '@/components/dashboard/shared'
 
 export default function DashboardPage() {
   return (
     <>
-      <Header.Root>Dashboard</Header.Root>
+      <PageHeader title="Dashboard" />
     </>
   )
 }

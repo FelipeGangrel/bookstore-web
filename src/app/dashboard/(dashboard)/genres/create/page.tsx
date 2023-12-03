@@ -1,3 +1,9 @@
+import { PageHeader } from '@/components/dashboard/shared'
+
 export default function CreateGenrePage() {
-  return <div>Crate genre</div>
+  return (
+    <>
+      <PageHeader title="Novo gênero de livro" />
+    </>
+  )
 }
