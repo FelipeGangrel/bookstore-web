@@ -8,14 +8,14 @@ import { Button } from '@/components/shared/agnostic'
 type Props = {
   title: string
   description?: string
-  addActionUrl?: string
+  addAction?: string | (() => void)
   addActionLabel?: string
 }
 
 export const PageHeader: FC<Props> = ({
   title,
   description,
-  addActionUrl,
+  addAction,
   addActionLabel,
 }) => (
   <div className="flex items-center justify-between border border-transparent border-b-slate-100 pb-4">
@@ -23,10 +23,17 @@ export const PageHeader: FC<Props> = ({
       <h1 className="text-2xl font-bold text-gray-900">{title}</h1>
       {description && <p className="text-sm text-gray-500">{description}</p>}
     </div>
-    {addActionUrl && addActionLabel && (
-      <NextLink href={addActionUrl}>
-        <Button>{addActionLabel}</Button>
-      </NextLink>
+    {addActionLabel && (
+      <>
+        {typeof addAction === 'string' && (
+          <NextLink href={addAction}>
+            <Button>{addActionLabel}</Button>
+          </NextLink>
+        )}
+        {typeof addAction === 'function' && (
+          <Button onClick={addAction}>{addActionLabel}</Button>
+        )}
+      </>
     )}
   </div>
 )
