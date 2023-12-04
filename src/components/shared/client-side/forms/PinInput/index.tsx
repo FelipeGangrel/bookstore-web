@@ -99,7 +99,7 @@ export const PinInput: FC<props> = ({
       const { id, value, nextSibling } = event.target
 
       const lastChar = value[value.length - 1]
-      const isNumber = !isNaN(Number(lastChar))
+      const isNumber = /\d/.test(lastChar)
 
       if (!isNumber) {
         return
