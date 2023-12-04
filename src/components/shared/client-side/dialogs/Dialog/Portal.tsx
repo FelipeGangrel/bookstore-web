@@ -15,7 +15,7 @@ export const Portal: React.FC<DialogPortalProps> = ({
       <RadixDialog.Overlay
         {...overlayProps}
         className={twMerge(
-          'fixed inset-0 bg-black bg-opacity-50',
+          'fixed inset-0 z-20 bg-black bg-opacity-50',
           overlayProps?.className
         )}
       />

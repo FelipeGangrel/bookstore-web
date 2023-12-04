@@ -12,7 +12,7 @@ export const Content: React.FC<DialogContentProps> = ({
     <RadixDialog.Content
       {...props}
       className={cn(
-        'fixed left-[50%] top-[50%] w-full max-w-[480px]',
+        'fixed left-[50%] top-[50%] z-20 w-full max-w-[480px]',
         'translate-x-[-50%] translate-y-[-50%]',
         'rounded-md border-2 border-slate-200 bg-white shadow-xl',
         props.className
