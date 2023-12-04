@@ -9,9 +9,9 @@ export const button = tv({
       danger: 'border-rose-500 bg-rose-500 text-white hover:bg-rose-400',
     },
     size: {
-      sm: 'text-sm',
-      md: 'text-base',
-      lg: 'px-4 py-3 text-lg',
+      sm: 'text-sm [&>svg]:h-5 [&>svg]:w-5',
+      md: 'text-base [&>svg]:h-6 [&>svg]:w-6',
+      lg: 'px-4 py-3 text-lg [&>svg]:h-7 [&>svg]:w-7',
     },
   },
   compoundVariants: [
